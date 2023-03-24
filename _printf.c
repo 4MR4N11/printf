@@ -6,6 +6,7 @@ int _printf(const char *format, ...)
 	int i = 0;
 	int count = 0;
 	char arg;
+	int num;
 
 	va_start(list, format);
 
@@ -20,6 +21,7 @@ int _printf(const char *format, ...)
 				write(1, &arg, 1);
 				count++;
 			}
+			
 		}
 		else
 		{
