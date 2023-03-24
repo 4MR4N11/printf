@@ -14,3 +14,18 @@ int main(void)
     return 0;
 }
 ```
+
+This would output the following text to the console:
+
+```
+Hello, world!
+```
+
+The custom `printf()` function currently supports only the %c and %s format specifiers, which correspond to a single character and a null-terminated string, respectively.
+
+## Files
+
+- [\_printf.c](./_printf.c): The main source file that contains the implementation of the custom `_printf()` function.
+- [main.h](./main.c): The header file that defines the interface for the custom printf() function and includes the necessary library headers.
+- [README.md](./README.md): This file, which provides an overview of the code and instructions for how to use it.
+
