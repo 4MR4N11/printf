@@ -35,7 +35,7 @@ int	skip_space(const char *format, int index)
 int check_format(char c)
 {
 	if (c == 'c' || c == 's' || c == '%'
-		|| c == 'd' || c == 'b')
+		|| c == 'd' || c == 'b' || c == 'i')
 		return (1);
 	return (0);
 }
@@ -64,7 +64,7 @@ int _printf(const char *format, ...)
 			if (check_format(format[i]))
 			{
 				if (format[i] == 'c')
-					count += _putchar(va_arg(list, int));
+					count += _putchar((char)va_arg(list, int));
 				if (format[i] == 's')
 					count += _putstr(va_arg(list, char *));
 				if (format[i] == '%')
