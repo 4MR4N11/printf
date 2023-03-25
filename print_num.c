@@ -11,6 +11,12 @@ int _print_number(int num)
 {
 	int count = 0;
 
+	if (num == -2147483648)
+	{
+		count += _putstr("-2147483648");
+		return (count);
+	}
+
 	if (num < 0)
 	{
 		count += _putchar('-');
