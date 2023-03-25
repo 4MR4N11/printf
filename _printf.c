@@ -27,6 +27,11 @@ int _putstr(char *str)
 
 	len = 0;
 	i = 0;
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
 	while (str && str[i])
 	{
 		len += _putchar(str[i]);
