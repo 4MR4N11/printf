@@ -108,7 +108,7 @@ int _print_binary(unsigned int num)
 			count += _putchar(arr[j] + '0');
 		}
 	}
-	return (count - 1);
+	return (count);
 }
 
 /**
