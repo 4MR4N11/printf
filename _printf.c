@@ -112,6 +112,13 @@ int _print_binary(unsigned int num)
 	return (count);
 }
 
+int	skip_space(const char *format, int index)
+{
+	while (format[index] == ' ')
+		index++;
+	return (index);
+}
+
 /**
  * _printf - prints formatted output to stdout
  * @format: the format string to use
@@ -128,13 +135,11 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	while (format && format[i])
 	{
-		if (!format || (format[0] == '%' && !format[1]))
-			return (-1);
-		if (format[0] == '%' && format[1] == ' ' && !format[2])
-			return (-1);
 		if (format[i] == '%')
 		{
-			i++;
+			i = skip_space(format, i + 1);
+			if (!format[i])
+				return (-1);
 			if (format[i] == 'c')
 				count += _putchar(va_arg(list, int));
 			if (format[i] == 's')
