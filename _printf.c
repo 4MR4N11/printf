@@ -30,7 +30,7 @@ int	skip_space(const char *format, int index)
 /**
  * check_format - checks for valid formats.
  * @c: format character.
- * Return: 1 if it's valid, 0 otherwise.
+ * Return: 1 if it's valid, otherwise 0.
 */
 int check_format(char c)
 {
@@ -87,5 +87,6 @@ int _printf(const char *format, ...)
 		}
 		i++;
 	}
+	va_end(list);
 	return (count);
 }
