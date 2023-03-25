@@ -79,6 +79,13 @@ int _print_number(int num)
         return (count);
 }
 
+/**
+ * _print_binary - prints the binary representation of an unsigned int
+ * @num: the unsigned int to print
+ *
+ * Return: the number of characters printed
+ */
+
 int _print_binary(unsigned int num)
 {
 	int i = 0, j;
