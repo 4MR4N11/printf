@@ -95,20 +95,20 @@ int _print_binary(unsigned int num)
 	if (num == 0)
 	{
 		count += _putchar(0 + '0');
-		return(0);
 	}
-
-	for (; num > 0;)
+	else
 	{
-		arr[i++] = num % 2;
-		num /= 2;
+		for (; num > 0;)
+		{
+			arr[i++] = num % 2;
+			num /= 2;
+		}
+		for (j = i - 1; j >= 0; j--)
+		{
+			count += _putchar(arr[j] + '0');
+		}
 	}
-
-	for (j = i - 1; j >= 0; j--)
-	{
-		count += _putchar(arr[j] + '0');
-	}
-	return (count);
+	return (count - 1);
 }
 
 /**
