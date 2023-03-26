@@ -1,31 +1,62 @@
 # Custom printf function
 
-This is an implementation of the `printf()` function in C that supports the `%c` and `%s` format specifiers. The function is implemented in the _printf.c file, and it depends on the `unistd.h` and `stdarg.h` libraries.
+This repository contains a custom implementation of the printf function in C.
+
+## Functionality
+
+The custom printf function supports the following format specifiers:
+
+- `%c`: print a single character
+- `%s`: print a null-terminated string
+- `%d`: print a decimal integer
+- `%i`: print an integer
+- `%b`: print an unsigned integer in binary format
+- `%x`: print an unsigned integer in lowercase hexadecimal format
+- `%X`: print an unsigned integer in uppercase hexadecimal format
+- `%%`: print a literal percent sign
+
+## File Structure
+
+The source code for the custom printf function is organized as follows:
+
+- `_printf.c`: contains the implementation for the custom printf function
+- `_print_bin.c`: contains the implementation for printing unsigned integers in binary format
+- `_print_num.c`: contains the implementation for printing decimal and integer values
+- `_put_X.c`: contains the implementation for printing unsigned integers in uppercase hexadecimal format
+- `_put_x.c`: contains the implementation for printing unsigned integers in lowercase hexadecimal format
+- `_putstr.c`: contains the implementation for printing null-terminated strings
+- `main.h`: contains the function prototypes and necessary header files.
 
 ## Usage
 
-To use the custom printf() function, you can include the `main.h` header file in your C program and call the `_printf()` function with a format string and any necessary arguments. For example:
+To use the custom printf function in your own program, simply include the main.h header file and call the function with the desired format string and any necessary arguments.
 
-```#include "main.h"
+Example usage:
+```
+#include "main.h"
 
 int main(void)
 {
-    _printf("Hello, %s!\n", "world");
-    return 0;
+    _printf("%s %d %b %X\n", "Hello, world!", 42, 42, 255);
+    return (0);
 }
 ```
 
-This would output the following text to the console:
-
+This will output:
 ```
-Hello, world!
+Hello, world! 42 101010  FF
 ```
 
-The custom `printf()` function currently supports only the %c and %s format specifiers, which correspond to a single character and a null-terminated string, respectively.
+## Testing
 
-## Files
+The custom printf function has been tested on a variety of input strings and format specifiers. To run the test suite, simply compile and run a main file along with all the files:
+```
+gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c -o test_printf
+./test_printf
+```
+This will compile and run the test suite, which will output the results of each test.
 
-- [\_printf.c](./_printf.c): The main source file that contains the implementation of the custom `_printf()` function.
-- [main.h](./main.c): The header file that defines the interface for the custom printf() function and includes the necessary library headers.
-- [README.md](./README.md): This file, which provides an overview of the code and instructions for how to use it.
+## Authors
 
+- Khalid El Amrani (@4MR4N11).
+- Anas Benba (@AnasBenba).
