@@ -34,7 +34,7 @@ int	skip_space(const char *format, int index)
 */
 int check_format(char c)
 {
-	if (c == 'c' || c == 's' || c == '%' || c == 'X'
+	if (c == 'c' || c == 's' || c == '%' || c == 'X' || c == 'o'
 		|| c == 'd' || c == 'b' || c == 'i' || c == 'x')
 		return (1);
 	return (0);
@@ -66,6 +66,8 @@ int	print_content(va_list list, char conv)
 		count = _put_x(va_arg(list, unsigned long));
 	if (conv == 'X')
 		count = _put_X(va_arg(list, unsigned long));
+	if (conv == 'o')
+		count = _put_o(va_arg(list, unsigned long));
 	return (count);
 }
 
