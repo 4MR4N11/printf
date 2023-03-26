@@ -68,7 +68,7 @@ int	print_content(va_list list, char conv)
 	if (conv == 'X')
 		count = _put_X(va_arg(list, unsigned int));
 	if (conv == 'o')
-		count = _put_o(va_arg(list, unsigned long));
+		count = _put_o(va_arg(list, unsigned int));
 	if (conv == 'u')
 		count = _put_u(va_arg(list, unsigned int));
 	return (count);

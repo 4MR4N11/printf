@@ -6,7 +6,7 @@
  * Return: The number of characters printed
  */
 
-int	_put_o(unsigned long nb)
+int	_put_o(unsigned int nb)
 {
 	unsigned int octal[11];
 	int i, j, count;
