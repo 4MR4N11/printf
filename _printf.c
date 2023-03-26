@@ -64,9 +64,9 @@ int	print_content(va_list list, char conv)
 	if (conv == 'b')
 		count = _print_binary(va_arg(list, unsigned int));
 	if (conv == 'x')
-		count = _put_x(va_arg(list, unsigned long));
+		count = _put_x(va_arg(list, unsigned int));
 	if (conv == 'X')
-		count = _put_X(va_arg(list, unsigned long));
+		count = _put_X(va_arg(list, unsigned int));
 	if (conv == 'o')
 		count = _put_o(va_arg(list, unsigned long));
 	if (conv == 'u')

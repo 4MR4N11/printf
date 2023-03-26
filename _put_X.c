@@ -6,7 +6,7 @@
  * Return: The number of characters printed.
  */
 
-int	_put_X(unsigned long nb)
+int	_put_X(unsigned int nb)
 {
 	char *base = "0123456789ABCDEF";
 	char *rev_num;

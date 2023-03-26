@@ -6,7 +6,7 @@
  * Return: the length of the number
  */
 
-int get_len(unsigned long nb)
+int get_len(unsigned int nb)
 {
 	int i;
 
@@ -25,7 +25,7 @@ int get_len(unsigned long nb)
  * Return: The number of characters printed.
  */
 
-int	_put_x(unsigned long nb)
+int	_put_x(unsigned int nb)
 {
 	char *base = "0123456789abcdef";
 	char *rev_num;
