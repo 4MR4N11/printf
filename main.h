@@ -14,5 +14,6 @@ int	_put_x(unsigned long nb);
 int	_put_X(unsigned long nb);
 int get_len(unsigned long nb);
 int	_put_o(unsigned long nb);
+int _put_u(unsigned int num);
 
 #endif
