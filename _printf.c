@@ -34,10 +34,39 @@ int	skip_space(const char *format, int index)
 */
 int check_format(char c)
 {
-	if (c == 'c' || c == 's' || c == '%'
-		|| c == 'd' || c == 'b' || c == 'i')
+	if (c == 'c' || c == 's' || c == '%' || c == 'X'
+		|| c == 'd' || c == 'b' || c == 'i' || c == 'x')
 		return (1);
 	return (0);
+}
+
+/**
+ * print_content - prints content based on the conversion specifier
+ * @list: the list of arguments to print
+ * @conv: the conversion specifier to use
+ * Return: the number of characters printed
+ */
+
+int	print_content(va_list list, char conv)
+{
+	int count;
+
+	count = 0;
+	if (conv == 'c')
+		count = _putchar((char)va_arg(list, int));
+	if (conv == 's')
+		count = _putstr(va_arg(list, char *));
+	if (conv == '%')
+		count = _putchar(conv);
+	if (conv == 'd' || conv == 'i')
+		count = _print_number(va_arg(list, int));
+	if (conv == 'b')
+		count = _print_binary(va_arg(list, unsigned int));
+	if (conv == 'x')
+		count = _put_x(va_arg(list, unsigned long));
+	if (conv == 'X')
+		count = _put_X(va_arg(list, unsigned long));
+	return (count);
 }
 
 /**
@@ -64,18 +93,7 @@ int _printf(const char *format, ...)
 			if (!format[i])
 				return (-1);
 			if (check_format(format[i]))
-			{
-				if (format[i] == 'c')
-					count += _putchar((char)va_arg(list, int));
-				if (format[i] == 's')
-					count += _putstr(va_arg(list, char *));
-				if (format[i] == '%')
-					count += _putchar(format[i]);
-				if (format[i] == 'd' || format[i] == 'i')
-					count += _print_number(va_arg(list, int));
-				if (format[i] == 'b')
-					count += _print_binary(va_arg(list, unsigned int));
-			}
+				count += print_content(list, format[i]);
 			else
 			{
 				count += _putchar('%');
