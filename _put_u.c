@@ -30,12 +30,10 @@ int _put_u(unsigned int num)
 			num /= 10;
 			j++;
 		}
-		Unum[j] = '\0';
 	}
-	while (j >= 0)
+	while (--j >= 0)
 	{
 		count += _putchar(Unum[j]);
-		j--;
 	}
-	return (count - 1);
+	return (count);
 }
