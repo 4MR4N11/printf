@@ -43,5 +43,5 @@ int _put_u(unsigned int num)
 		count += _putchar(Unum[j]);
 		j--;
 	}
-	return (count);
+	return (count - 1);
 }
