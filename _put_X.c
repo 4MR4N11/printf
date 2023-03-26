@@ -6,11 +6,11 @@
  * Return: The number of characters printed.
  */
 
-int	_put_X(unsigned int nb)
+int	_put_X(unsigned int nb, int check)
 {
 	char *base = "0123456789ABCDEF";
 	char *rev_num;
-	int i, j;
+	int i, j, k = 0;
 
 	i = 0;
 	if (nb == 0)
@@ -23,8 +23,18 @@ int	_put_X(unsigned int nb)
 		rev_num[i++] = base[j];
 	}
 	j = 0;
-	while (--i >= 0)
-		j += _putchar(rev_num[i]);
+	if (check == 1)
+	{
+		while (--i >= 0)
+			j += _putchar(rev_num[i]);
+	}
+	else
+	{
+		while (--i >= 0 && k < 2)
+		{
+			j += _putchar(rev_num[i]);
+		}
+	}
 	free(rev_num);
 	return (j);
 }

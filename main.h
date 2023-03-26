@@ -11,9 +11,10 @@ int _print_number(int num);
 int _putchar(char c);
 int _putstr(char *str);
 int	_put_x(unsigned int nb);
-int	_put_X(unsigned int nb);
+int	_put_X(unsigned int nb, int check);
 int get_len(unsigned int nb);
 int	_put_o(unsigned int nb);
 int _put_u(unsigned int num);
+int put_S(char *str);
 
 #endif
