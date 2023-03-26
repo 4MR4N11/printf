@@ -13,6 +13,7 @@ The custom printf function supports the following format specifiers:
 - `%b`: print an unsigned integer in binary format
 - `%x`: print an unsigned integer in lowercase hexadecimal format
 - `%X`: print an unsigned integer in uppercase hexadecimal format
+- `%o`: Prints an unsigned integer in octal format.
 - `%%`: print a literal percent sign
 
 ## File Structure
@@ -20,11 +21,12 @@ The custom printf function supports the following format specifiers:
 The source code for the custom printf function is organized as follows:
 
 - `_printf.c`: contains the implementation for the custom printf function
-- `_print_bin.c`: contains the implementation for printing unsigned integers in binary format
-- `_print_num.c`: contains the implementation for printing decimal and integer values
+- `_put_bin.c`: contains the implementation for printing unsigned integers in binary format
+- `_put_num.c`: contains the implementation for printing decimal and integer values
 - `_put_X.c`: contains the implementation for printing unsigned integers in uppercase hexadecimal format
 - `_put_x.c`: contains the implementation for printing unsigned integers in lowercase hexadecimal format
 - `_putstr.c`: contains the implementation for printing null-terminated strings
+- `_put_o.c`: Function that prints an unsigned integer in octal format.
 - `main.h`: contains the function prototypes and necessary header files.
 
 ## Usage
@@ -37,14 +39,14 @@ Example usage:
 
 int main(void)
 {
-    _printf("%s %d %b %X\n", "Hello, world!", 42, 42, 255);
+    _printf("%s %d %b %X %o\n", "Hello, world!", 42, 42, 255, 42);
     return (0);
 }
 ```
 
 This will output:
 ```
-Hello, world! 42 101010  FF
+Hello, world! 42 101010  FF 52
 ```
 
 ## Testing
