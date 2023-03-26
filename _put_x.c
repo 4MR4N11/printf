@@ -35,6 +35,10 @@ int	_put_x(unsigned int nb)
 	if (nb == 0)
 		return (_putchar('0'));
 	rev_num = malloc(sizeof(char) * get_len(nb));
+	if (rev_num == NULL)
+	{
+		exit(-1);
+	}
 	while (nb > 0)
 	{
 		j = nb % 16;
