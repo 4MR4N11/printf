@@ -35,7 +35,8 @@ int	skip_space(const char *format, int index)
 int check_format(char c)
 {
 	if (c == 'c' || c == 's' || c == '%' || c == 'X' || c == 'o'
-		|| c == 'd' || c == 'b' || c == 'i' || c == 'x')
+		|| c == 'd' || c == 'b' || c == 'i' || c == 'x' ||
+		c == 'u')
 		return (1);
 	return (0);
 }

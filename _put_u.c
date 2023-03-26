@@ -20,11 +20,11 @@ int _put_u(unsigned int num)
 	}
 	else if ((int)num < 0)
 	{
-		i -= num - 1;
-		while (i > 0)
+		while (num > 0)
 		{
-			Unum[j++] = (i % 10) + '0';
-			i /= 10;
+			Unum[j] = (num % 10) + '0';
+			num /= 10;
+			j++;
 		}
 		Unum[j] = '\0';
 	}
@@ -32,13 +32,13 @@ int _put_u(unsigned int num)
 	{
 		while (num > 0)
 		{
-			Unum[j++] = num % 10 + '0';
+			Unum[j] = num % 10 + '0';
 			num /= 10;
+			j++;
 		}
 		Unum[j] = '\0';
 	}
-	j = j - 1;
-	while (j > 0)
+	while (j >= 0)
 	{
 		count += _putchar(Unum[j]);
 		j--;
