@@ -60,5 +60,5 @@ This will compile and run the test suite, which will output the results of each 
 
 ## Authors
 
-- Khalid El Amrani (@4MR4N11).
-- Anas Benba (@AnasBenba).
+- Khalid El Amrani ([@4MR4N11](https://github.com/4mr4n11)).
+- Anas Benba ([@AnasBenba](https://github.com/AnasBenba)).
