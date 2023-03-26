@@ -13,9 +13,13 @@ int _put_u(unsigned int num)
 	int count = 0, j = 0;
 	char Unum[20];
 
+	if (num == 0)
+	{
+		count += _putchar('0');
+	}
+
 	if (num > i)
 	{
-		count = _putchar('0');
 		return (-1);
 	}
 	else if ((int)num < 0)
