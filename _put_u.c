@@ -22,16 +22,6 @@ int _put_u(unsigned int num)
 	{
 		return (-1);
 	}
-	else if ((int)num < 0)
-	{
-		while (num > 0)
-		{
-			Unum[j] = (num % 10) + '0';
-			num /= 10;
-			j++;
-		}
-		Unum[j] = '\0';
-	}
 	else
 	{
 		while (num > 0)
