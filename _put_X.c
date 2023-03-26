@@ -30,6 +30,8 @@ int	_put_X(unsigned int nb, int check)
 	}
 	else
 	{
+		if (i == 1)
+			j += _putchar('0');
 		while (--i >= 0 && k < 2)
 		{
 			j += _putchar(rev_num[i]);

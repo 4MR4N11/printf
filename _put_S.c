@@ -1,5 +1,13 @@
 #include "main.h"
 
+/**
+ * put_S - outputs a string to the standard output,
+ * with non-printable characters replaced by \x followed by the ASCII code value in hex * adecimal
+ * @str: pointer to the string to output
+ *
+ * Return: the number of characters printed to the standard output
+ */
+
 int put_S(char *str)
 {
 	int i = 0, count = 0;
