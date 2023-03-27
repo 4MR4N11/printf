@@ -13,8 +13,10 @@ The custom printf function supports the following format specifiers:
 - `%b`: print an unsigned integer in binary format
 - `%x`: print an unsigned integer in lowercase hexadecimal format
 - `%X`: print an unsigned integer in uppercase hexadecimal format
-- `%o`: Prints an unsigned integer in octal format.
-- `%%`: print a literal percent sign
+- `%o`: Print an unsigned integer in octal format.
+- `%S`: Print a string but the Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
+- `%p`: Print a memory address of a pointer variable in hexadecimal format.
+- `%%`: Print a literal percent sign
 
 ## File Structure
 
@@ -26,7 +28,9 @@ The source code for the custom printf function is organized as follows:
 - `_put_X.c`: contains the implementation for printing unsigned integers in uppercase hexadecimal format
 - `_put_x.c`: contains the implementation for printing unsigned integers in lowercase hexadecimal format
 - `_putstr.c`: contains the implementation for printing null-terminated strings
-- `_put_o.c`: Function that prints an unsigned integer in octal format.
+- `_put_o.c`: contains the implementation for printing unsigned integer in octal format.
+- `_put_S.c`: contains the implementation for printing string of characters with non-printable characters encoded.
+- `_put_p.c`: contains the implementation for printing pointer address.
 - `main.h`: contains the function prototypes and necessary header files.
 
 ## Usage
