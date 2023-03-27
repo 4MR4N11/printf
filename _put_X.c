@@ -3,6 +3,8 @@
 /**
  * _put_X - Converts and prints an unsigned long int to uppercase hexadecimal.
  * @nb: The unsigned long integer to be printed.
+ * @check: flag to check if we are calling the S or X conversion.
+ * 1 for X, 0 for S.
  * Return: The number of characters printed.
  */
 

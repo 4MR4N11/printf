@@ -15,6 +15,7 @@ int	_put_X(unsigned int nb, int check);
 int get_len(unsigned int nb);
 int	_put_o(unsigned int nb);
 int _put_u(unsigned int num);
-int put_S(char *str);
+int _put_S(char *str);
+int _put_p(void *ptr);
 
 #endif

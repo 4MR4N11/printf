@@ -36,7 +36,7 @@ int check_format(char c)
 {
 	if (c == 'c' || c == 's' || c == '%' || c == 'X' || c == 'o'
 		|| c == 'd' || c == 'b' || c == 'i' || c == 'x' ||
-		c == 'u' || c == 'S')
+		c == 'u' || c == 'S' || c == 'p')
 		return (1);
 	return (0);
 }
@@ -72,7 +72,9 @@ int	print_content(va_list list, char conv)
 	if (conv == 'u')
 		count = _put_u(va_arg(list, unsigned int));
 	if (conv == 'S')
-		count = put_S(va_arg(list, char*));
+		count = _put_S(va_arg(list, char*));
+	if (conv == 'p')
+		count = _put_p(va_arg(list, void *));
 	return (count);
 }
 
