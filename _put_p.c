@@ -3,10 +3,11 @@
 /**
  * _put_p - Prints the address of a pointer.
  * @ptr: The pointer to be printed.
+ * @flags: struct that contains the flags to use
  * Return: The number of characters printed.
  */
 
-int	_put_p(void *ptr)
+int	_put_p(void *ptr, flags_t flags)
 {
 	char *base = "0123456789abcdef";
 	char *rev_num;
@@ -26,6 +27,10 @@ int	_put_p(void *ptr)
 		rev_num[i++] = base[j];
 	}
 	j = 0;
+	if (flags.plus)
+		j += _putchar('+');
+	else if (flags.space)
+		j += _putchar(' ');
 	j += _putstr("0x");
 	while (--i >= 0)
 		j += _putchar(rev_num[i]);

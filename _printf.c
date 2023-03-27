@@ -14,16 +14,26 @@ int _putchar(char c)
 }
 
 /**
- * skip_space - skip spaces after '%'.
+ * skip_flags - skip flags after '%'.
  * @format: the format.
  * @index: index in format.
- * Return: new index after skipping spaces.
+ * @flags: struct that contains the flags to use
+ * Return: new index after skipping flags.
 */
 
-int	skip_space(const char *format, int index)
+int	skip_flags(const char *format, int index, flags_t *flags)
 {
-	while (format[index] == ' ')
+	while (format[index] == ' ' || format[index] == '+'
+			|| format[index] == '#')
+	{
+		if (format[index] == ' ')
+			flags->space = 1;
+		if (format[index] == '+')
+			flags->plus = 1;
+		if (format[index] == '#')
+			flags->hash = 1;
 		index++;
+	}
 	return (index);
 }
 
@@ -45,10 +55,11 @@ int check_format(char c)
  * print_content - prints content based on the conversion specifier
  * @list: the list of arguments to print
  * @conv: the conversion specifier to use
+ * @flags: struct that contains the flags to use
  * Return: the number of characters printed
  */
 
-int	print_content(va_list list, char conv)
+int	print_content(va_list list, char conv, flags_t flags)
 {
 	int count;
 
@@ -60,21 +71,21 @@ int	print_content(va_list list, char conv)
 	if (conv == '%')
 		count = _putchar(conv);
 	if (conv == 'd' || conv == 'i')
-		count = _print_number(va_arg(list, int));
+		count = _print_number(va_arg(list, int), flags);
 	if (conv == 'b')
 		count = _print_binary(va_arg(list, unsigned int));
 	if (conv == 'x')
-		count = _put_x(va_arg(list, unsigned int));
+		count = _put_x(va_arg(list, unsigned int), flags);
 	if (conv == 'X')
-		count = _put_X(va_arg(list, unsigned int), 1);
+		count = _put_X(va_arg(list, unsigned int), 1, flags);
 	if (conv == 'o')
-		count = _put_o(va_arg(list, unsigned int));
+		count = _put_o(va_arg(list, unsigned int), flags);
 	if (conv == 'u')
 		count = _put_u(va_arg(list, unsigned int));
 	if (conv == 'S')
-		count = _put_S(va_arg(list, char*));
+		count = _put_S(va_arg(list, char*), flags);
 	if (conv == 'p')
-		count = _put_p(va_arg(list, void *));
+		count = _put_p(va_arg(list, void *), flags);
 	return (count);
 }
 
@@ -88,7 +99,9 @@ int	print_content(va_list list, char conv)
 int _printf(const char *format, ...)
 {
 	va_list list;
+	flags_t flags = {0, 0, 0};
 	int i = 0;
+	int tmp;
 	int count = 0;
 
 	va_start(list, format);
@@ -98,15 +111,23 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			i = skip_space(format, i + 1);
+			tmp = i;
+			i = skip_flags(format, i + 1, &flags);
 			if (!format[i])
 				return (-1);
 			if (check_format(format[i]))
-				count += print_content(list, format[i]);
+			{
+				count += print_content(list, format[i], flags);
+				flags.plus = 0;
+				flags.space = 0;
+				flags.hash = 0;
+			}
 			else
 			{
-				count += _putchar('%');
-				count += _putchar(format[i]);
+				if (!format[i])
+					return (-1);
+				while (tmp <= i)
+					count += _putchar(format[tmp++]);
 			}
 		}
 		else

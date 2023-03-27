@@ -5,10 +5,11 @@
  * @nb: The unsigned long integer to be printed.
  * @check: flag to check if we are calling the S or X conversion.
  * 1 for X, 0 for S.
+ * @flags: struct that contains the flags to use
  * Return: The number of characters printed.
  */
 
-int	_put_X(unsigned int nb, int check)
+int	_put_X(unsigned int nb, int check, flags_t flags)
 {
 	char *base = "0123456789ABCDEF";
 	char *rev_num;
@@ -27,6 +28,8 @@ int	_put_X(unsigned int nb, int check)
 	j = 0;
 	if (check == 1)
 	{
+		if (flags.hash)
+			j += _putstr("0X");
 		while (--i >= 0)
 			j += _putchar(rev_num[i]);
 	}
@@ -35,9 +38,7 @@ int	_put_X(unsigned int nb, int check)
 		if (i == 1)
 			j += _putchar('0');
 		while (--i >= 0 && k < 2)
-		{
 			j += _putchar(rev_num[i]);
-		}
 	}
 	free(rev_num);
 	return (j);

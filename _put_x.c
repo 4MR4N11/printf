@@ -22,10 +22,11 @@ int get_len(unsigned int nb)
 /**
  * _put_x - Converts and prints an unsigned long int to lowercase hexadecimal.
  * @nb: The unsigned long integer to be printed.
+ * @flags: struct that contains the flags to use
  * Return: The number of characters printed.
  */
 
-int	_put_x(unsigned int nb)
+int	_put_x(unsigned int nb, flags_t flags)
 {
 	char *base = "0123456789abcdef";
 	char *rev_num;
@@ -36,9 +37,7 @@ int	_put_x(unsigned int nb)
 		return (_putchar('0'));
 	rev_num = malloc(sizeof(char) * get_len(nb));
 	if (rev_num == NULL)
-	{
 		exit(-1);
-	}
 	while (nb > 0)
 	{
 		j = nb % 16;
@@ -46,6 +45,8 @@ int	_put_x(unsigned int nb)
 		rev_num[i++] = base[j];
 	}
 	j = 0;
+	if (flags.hash)
+		j += _putstr("0x");
 	while (--i >= 0)
 		j += _putchar(rev_num[i]);
 	free(rev_num);

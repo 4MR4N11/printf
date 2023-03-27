@@ -3,10 +3,11 @@
 /**
  * _put_o - Prints an unsigned int argument as an octal number
  * @nb: The number to print
+ * @flags: struct that contains the flags to use
  * Return: The number of characters printed
  */
 
-int	_put_o(unsigned int nb)
+int	_put_o(unsigned int nb, flags_t flags)
 {
 	unsigned int octal[11];
 	int i, j, count;
@@ -26,6 +27,8 @@ int	_put_o(unsigned int nb)
 		return (1);
 	}
 	j = i - 1;
+	if (flags.hash && octal[j] != 0)
+		count += _putchar('0');
 	while (j >= 0)
 	{
 		_putchar(octal[j] + '0');
