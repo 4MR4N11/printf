@@ -19,6 +19,8 @@ int _print_number(int num, flags_t flags)
 
 	if (flags.plus && num >= 0)
 		count += _putchar('+');
+	else if (flags.space && num >= 0)
+		count += _putchar(' ');
 	if (num < 0)
 	{
 		count += _putchar('-');
