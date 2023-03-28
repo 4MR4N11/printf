@@ -10,12 +10,16 @@
  * @plus: flag to print a plus sign
  * @space: flag to print a space
  * @hash: flag to print a hash
+ * @l: flag to print a l
+ * @h: flag to print a h
  */
 typedef struct flags
 {
 	int plus;
 	int space;
 	int hash;
+	int l;
+	int h;
 } flags_t;
 int _printf(const char *format, ...);
 int _print_binary(unsigned int num);
@@ -26,7 +30,7 @@ int	_put_x(unsigned int nb, flags_t flags);
 int	_put_X(unsigned int nb, int check, flags_t flags);
 int get_len(unsigned int nb);
 int	_put_o(unsigned int nb, flags_t flags);
-int _put_u(unsigned int num);
+int _put_u(unsigned int num, flags_t flags);
 int _put_S(char *str, flags_t flags);
 int _put_p(void *ptr, flags_t flags);
 

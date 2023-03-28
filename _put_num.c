@@ -11,12 +11,15 @@ int _print_number(int num, flags_t flags)
 {
 	int count = 0;
 
+	if (flags.h == 1)
+		num = (short)num;
+	else if (flags.h == 2)
+		num = (char)num;
 	if (num == -2147483648)
 	{
 		count += _putstr("-2147483648");
 		return (count);
 	}
-
 	if (flags.plus && num >= 0)
 		count += _putchar('+');
 	else if (flags.space && num >= 0)

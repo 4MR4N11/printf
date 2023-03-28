@@ -15,6 +15,10 @@ int	_put_o(unsigned int nb, flags_t flags)
 	i = 0;
 	j = 0;
 	count = 0;
+	if (flags.h == 1)
+		nb = (unsigned short)nb;
+	else if (flags.h == 2)
+		nb = (unsigned char)nb;
 	while (nb > 0)
 	{
 		octal[i] = nb % 8;

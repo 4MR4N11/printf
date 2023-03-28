@@ -35,6 +35,10 @@ int	_put_x(unsigned int nb, flags_t flags)
 	i = 0;
 	if (nb == 0)
 		return (_putchar('0'));
+	if (flags.h == 1)
+		nb = (unsigned short)nb;
+	else if (flags.h == 2)
+		nb = (unsigned char)nb;
 	rev_num = malloc(sizeof(char) * get_len(nb));
 	if (rev_num == NULL)
 		exit(-1);
