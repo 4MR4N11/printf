@@ -1,6 +1,6 @@
 # Custom printf function
 
-This repository contains a custom implementation of the printf function in C.
+This repository contains a custom implementation of the printf function in C. It was developed as part of the curriculum for the ALX School Full-Stack Software Engineering program.
 
 ## Functionality
 
