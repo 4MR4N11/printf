@@ -111,6 +111,8 @@ int _printf(const char *format, ...)
 				flags.plus = 0;
 				flags.space = 0;
 				flags.hash = 0;
+				flags.l = 0;
+				flags.h = 0;
 			}
 			else
 				count += print_else(format, i, tmp);
