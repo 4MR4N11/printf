@@ -17,9 +17,9 @@ int _print_long(long num, flags_t flags)
 		num = (char)num;
 	else if (flags.l == 1)
 		num = (long)num;
-	if (num == -2147483648)
+	if (num == -9223372036854775808)
 	{
-		count += _putstr("-2147483648");
+		count += _putstr("-9223372036854775808");
 		return (count);
 	}
 	if (flags.plus && num >= 0)
@@ -35,7 +35,7 @@ int _print_long(long num, flags_t flags)
 		count += _putchar('0');
 	else
 	{
-		char num_str[12];
+		char num_str[21];
 		int i = 0;
 
 		while (num != 0)
