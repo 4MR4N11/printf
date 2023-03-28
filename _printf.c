@@ -115,7 +115,11 @@ int _printf(const char *format, ...)
 				flags.h = 0;
 			}
 			else
+			{
+				flags.l = 0;
+				flags.h = 0;
 				count += print_else(format, i, tmp);
+			}
 		}
 		else
 			count += _putchar(format[i]);
