@@ -56,20 +56,22 @@ int check_format(char c)
 */
 int print_else(const char *format, int i, int tmp)
 {
-	int count = 0;
+	int count = 0, l = 0, h = 0;
 
 	if (!format[i])
 		return (-1);
 	while (tmp <= i)
 	{
-		if (format[tmp] == 'l' && format[tmp - 1] == '%')
+		if (format[tmp] == 'l' && l == 0)
 		{
+			l = 1;
 			if (format[tmp + 1] == 'l')
 				tmp++;
 			tmp++;
 		}
-		else if (format[tmp] == 'h' && format[tmp - 1] == '%')
+		else if (format[tmp] == 'h' && h == 0)
 		{
+			h = 1;
 			if (format[tmp + 1] == 'h')
 				tmp++;
 			tmp++;
