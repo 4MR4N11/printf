@@ -1,15 +1,15 @@
 #include "main.h"
 
 /**
- * _put_X - Converts and prints an unsigned int to uppercase hexadecimal.
- * @nb: The unsigned integer to be printed.
+ * _put_LX - Converts and prints an unsigned long int to uppercase hexadecimal.
+ * @nb: The unsigned long integer to be printed.
  * @check: flag to check if we are calling the S or X conversion.
  * 1 for X, 0 for S.
  * @flags: struct that contains the flags to use
  * Return: The number of characters printed.
  */
 
-int	_put_X(unsigned int nb, int check, flags_t flags)
+int	_put_LX(unsigned long int nb, int check, flags_t flags)
 {
 	char *base = "0123456789ABCDEF";
 	char *rev_num;

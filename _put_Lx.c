@@ -1,32 +1,13 @@
 #include "main.h"
 
 /**
- * get_len - calculates the length of a number
- * @nb: the number to calculate the length of
- * Return: the length of the number
- */
-
-int get_len(unsigned long int nb)
-{
-	int i;
-
-	i = 0;
-	while (nb)
-	{
-		nb = nb / 10;
-		i++;
-	}
-	return (i);
-}
-
-/**
- * _put_x - Converts and prints an unsigned int to lowercase hexadecimal.
- * @nb: The unsigned integer to be printed.
+ * _put_Lx - Converts and prints an unsigned long int to lowercase hexadecimal.
+ * @nb: The unsigned long integer to be printed.
  * @flags: struct that contains the flags to use
  * Return: The number of characters printed.
  */
 
-int	_put_x(unsigned int nb, flags_t flags)
+int	_put_Lx(unsigned long int nb, flags_t flags)
 {
 	char *base = "0123456789abcdef";
 	char *rev_num;
