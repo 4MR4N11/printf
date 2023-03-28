@@ -24,7 +24,7 @@ int	skip_flags(const char *format, int index, flags_t *flags)
 	while (format[index] == 'l' || format[index] == 'h')
 	{
 		if (format[index] == 'l')
-			flags->h++;
+			flags->l++;
 		if (format[index] == 'h')
 			flags->h++;
 		index++;

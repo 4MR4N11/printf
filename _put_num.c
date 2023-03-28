@@ -15,6 +15,8 @@ int _print_number(int num, flags_t flags)
 		num = (short)num;
 	else if (flags.h == 2)
 		num = (char)num;
+	else if (flags.l == 1)
+		num = (long)num;
 	if (num == -2147483648)
 	{
 		count += _putstr("-2147483648");

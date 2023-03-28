@@ -16,7 +16,9 @@ int _put_u(unsigned int num, flags_t flags)
 	if (flags.h == 1)
 		num = (short)num;
 	else if (flags.h == 2)
-		num = (char)num;
+		num = (unsigned char)num;
+	else if (falgs.l == 1)
+		num = (unsigned long)num;
 	if (num == 0)
 		count += _putchar('0');
 	if (num > i)

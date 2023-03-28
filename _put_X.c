@@ -22,6 +22,8 @@ int	_put_X(unsigned int nb, int check, flags_t flags)
 		nb = (unsigned short)nb;
 	else if (flags.h == 2)
 		nb = (unsigned char)nb;
+	else if (flags.l == 1)
+		nb = (unsigned long)nb;
 	rev_num = malloc(sizeof(char) * get_len(nb));
 	while (nb > 0)
 	{
