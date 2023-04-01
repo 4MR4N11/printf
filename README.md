@@ -4,7 +4,9 @@ This repository contains a custom implementation of the printf function in C. It
 
 ## Functionality
 
-The custom printf function supports the following format specifiers:
+The custom printf function supports the following:
+
+## Format Specifiers
 
 - `%c`: print a single character
 - `%s`: print a null-terminated string
@@ -17,6 +19,18 @@ The custom printf function supports the following format specifiers:
 - `%S`: Print a string but the Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
 - `%p`: Print a memory address of a pointer variable in hexadecimal format.
 - `%%`: Print a literal percent sign
+
+## Flags
+
+- `+`: Forces to precede the result with a plus or minus sign (+ or -)
+- `#`: Applies the "alternate form" for `o`, `x`, and `X` conversions
+- ` `(space): Leaves a blank space before a positive number
+
+## Length Modifiers
+
+- `h`: Short (for integer types)
+- `l`: Long (for integer types)
+- `ll`: Long long (for integer types)
 
 ## File Structure
 
