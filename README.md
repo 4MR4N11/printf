@@ -57,14 +57,14 @@ Example usage:
 
 int main(void)
 {
-    _printf("%s %d %b %X %o\n", "Hello, world!", 42, 42, 255, 42);
+    _printf("%s %d %b %#X %o\n", "Hello, world!", 42, 42, 255, 42);
     return (0);
 }
 ```
 
 This will output:
 ```
-Hello, world! 42 101010  FF 52
+Hello, world! 42 101010  0XFF 52
 ```
 
 ## Testing
